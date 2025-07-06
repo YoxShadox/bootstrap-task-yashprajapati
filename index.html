@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopZen Orders Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <button class="btn d-flex align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">
+            <h4 class="mb-0 me-2">ShopZen</h4>
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="offcanvas offcanvas-start" style="width:300px;" data-bs-scroll="true" data-bs-backdrop="false"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h4 class="offcanvas-title" id="offcanvasScrollingLabel">ShopZen</h4>
+                <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                        class="bi bi-chevron-left"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-unstyled">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#"
+                            data-bs-toggle="collapse">
+                            <span><i class="bi bi-house me-2"></i>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#"
+                            data-bs-toggle="collapse" data-bs-target="#ordersMenu" aria-expanded="false">
+                            <span><i class="bi bi-bag me-2"></i>Orders</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="collapse ps-4 list-unstyled" id="ordersMenu">
+                            <li><a class="nav-link" href="#">Drafts</a></li>
+                            <li><a class="nav-link" href="#">Shipping labels</a></li>
+                            <li><a class="nav-link" href="#">Abandoned checkouts</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-tag me-2"></i>Products</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-person me-2"></i>Customers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-file-earmark-break me-2"></i>Content</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-cash-coin me-2"></i>Finances</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-graph-up-arrow me-2"></i>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-megaphone me-2"></i>Marketing</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-percent me-2"></i>Discounts</span>
+                        </a>
+                    </li>
+                    <h6 class="my-3">Sales Channels</h6>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-shop-window me-2"></i>Online Store</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-box-seam me-2"></i>Point Of Sale</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-shop me-2"></i>Shop</span>
+                        </a>
+                    </li>
+                    <h6 class="my-3">Apps</h6>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                            <span><i class="bi bi-file-plus me-2"></i>Add Apps</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nav-link active d-flex justify-content-between align-items-center" href="#">
+                <span><i class="bi bi-gear me-2"></i>Setting</span>
+                <i class="bi bi-chevron-up"></i>
+            </a>
+        </div>
+    </div>
+    <section class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="input-group" style="max-width: 400px;">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control">
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn border border-secondary border-opacity-25 rounded me-3">
+                    <i class="bi bi-bell"></i>
+                </button>
+                <a href="#" class="d-flex align-items-center text-decoration-none"
+                    style="color: black; font-size: 2.5rem;">
+                    <i class="bi bi-person-circle fs-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid my-3">
+        <div class="d-flex align-items-center justify-content-between flex-nowrap">
+            <div class="input-group mb-0" style="max-width: 400px;">
+                <h2 class="mb-0">Order</h2>
+            </div>
+            <div class="d-flex align-items-center flex-nowrap">
+                <button class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-box-arrow-up"></i> <span class="d-none d-sm-inline">Export</span>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-three-dots"></i> <span class="d-none d-sm-inline">More Actions</span>
+                </button>
+                <button class="btn btn-primary btn-sm">
+                    <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Create Order</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="border rounded p-2 ms-4" style="max-width: 250px; display: inline-block;">
+            <button class="btn nav-link active d-flex justify-content-between align-items-center w-100" type="button">
+                <span><i class="bi bi-calendar me-2"></i>jan 1 - jan 30,2024</span>
+                <i class="bi bi-chevron-down ms-2"></i>
+            </button>
+        </div>
+    </section>
+    <section class="container-fluid my-3">
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="card card-summary ">
+                    <div class="card-body">
+                        <small class="text-muted">Total Orders</small>
+                        <h4 class="fw-bold mb-0">21</h4>
+                        <span class="text-success small"><i class="bi bi-arrow-up-right"></i> 25.2%</span> last week
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card card-summary">
+                    <div class="card-body">
+                        <small class="text-muted">Order items over time</small>
+                        <h4 class="fw-bold mb-0">15</h4>
+                        <span class="text-success small"><i class="bi bi-arrow-up-right"></i> 18.2%</span> last week
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card card-summary  animate__delay-2s">
+                    <div class="card-body">
+                        <small class="text-muted">Return Orders</small>
+                        <h4 class="fw-bold mb-0">0</h4>
+                        <span class="text-danger small"><i class="bi bi-arrow-down-right"></i> 1.2%</span> last week
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card card-summary">
+                    <div class="card-body">
+                        <small class="text-muted">Fulfilled Orders</small>
+                        <h4 class="fw-bold mb-0">12</h4>
+                        <span class="text-success small"><i class="bi bi-arrow-up-right"></i> 12.2%</span> last week
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between flex-nowrap mb-3">
+            <div class="d-inline-block">
+                <ul class="nav border rounded mb-0">
+                    <li class="nav-item">
+                        <a class="nav-link active btn" href="#">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-hover" href="#">Unfulfilled</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-hover" href="#">Unpaid</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-hover" href="#">Open</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-hover" href="#">Closed</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center flex-nowrap ms-3">
+                <button class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-search"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-list"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-arrow-down-up"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm me-2">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid">
+        <div class="table-responsive shadow-sm">
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col"><input class="form-check-input" type="checkbox" /></th>
+              <th scope="col">Order</th>
+              <th scope="col">Date</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Payment</th>
+              <th scope="col">Total</th>
+              <th scope="col">Delivery</th>
+              <th scope="col">Items</th>
+              <th scope="col">Fulfillment</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1002</td>
+              <td>11 Feb 2024</td>
+              <td>Wade Warren</td>
+              <td><span class="badge text-bg-warning">Pending</span></td>
+              <td>$2 000</td>
+              <td>N/A</td>
+              <td>2 items</td>
+              <td><span class="badge text-bg-danger">Unfulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1004</td>
+              <td>13 Feb 2024</td>
+              <td>Esther Howard</td>
+              <td><span class="badge text-bg-success">Success</span></td>
+              <td>$2 200</td>
+              <td>N/A</td>
+              <td>3 items</td>
+              <td><span class="badge text-bg-success">Fulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1002</td>
+              <td>11 Feb 2024</td>
+              <td>Wade Warren</td>
+              <td><span class="badge text-bg-warning">Pending</span></td>
+              <td>$2 000</td>
+              <td>N/A</td>
+              <td>2 items</td>
+              <td><span class="badge text-bg-danger">Unfulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1004</td>
+              <td>13 Feb 2024</td>
+              <td>Esther Howard</td>
+              <td><span class="badge text-bg-success">Success</span></td>
+              <td>$2 200</td>
+              <td>N/A</td>
+              <td>3 items</td>
+              <td><span class="badge text-bg-success">Fulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1002</td>
+              <td>11 Feb 2024</td>
+              <td>Wade Warren</td>
+              <td><span class="badge text-bg-warning">Pending</span></td>
+              <td>$2 000</td>
+              <td>N/A</td>
+              <td>2 items</td>
+              <td><span class="badge text-bg-danger">Unfulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1004</td>
+              <td>13 Feb 2024</td>
+              <td>Esther Howard</td>
+              <td><span class="badge text-bg-success">Success</span></td>
+              <td>$2 200</td>
+              <td>N/A</td>
+              <td>3 items</td>
+              <td><span class="badge text-bg-success">Fulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1002</td>
+              <td>11 Feb 2024</td>
+              <td>Wade Warren</td>
+              <td><span class="badge text-bg-warning">Pending</span></td>
+              <td>$2 000</td>
+              <td>N/A</td>
+              <td>2 items</td>
+              <td><span class="badge text-bg-danger">Unfulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1004</td>
+              <td>13 Feb 2024</td>
+              <td>Esther Howard</td>
+              <td><span class="badge text-bg-success">Success</span></td>
+              <td>$2 200</td>
+              <td>N/A</td>
+              <td>3 items</td>
+              <td><span class="badge text-bg-success">Fulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1002</td>
+              <td>11 Feb 2024</td>
+              <td>Wade Warren</td>
+              <td><span class="badge text-bg-warning">Pending</span></td>
+              <td>$2 000</td>
+              <td>N/A</td>
+              <td>2 items</td>
+              <td><span class="badge text-bg-danger">Unfulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="form-check-input" type="checkbox" /></td>
+              <td>#1004</td>
+              <td>13 Feb 2024</td>
+              <td>Esther Howard</td>
+              <td><span class="badge text-bg-success">Success</span></td>
+              <td>$2 200</td>
+              <td>N/A</td>
+              <td>3 items</td>
+              <td><span class="badge text-bg-success">Fulfilled</span></td>
+              <td>
+                <button class="btn text-decoration-none"><i class="bi bi-eye"></i></button>
+                <button class="btn text-decoration-none"><i class="bi bi-pencil"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
